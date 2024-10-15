@@ -46,7 +46,3 @@ Contains all valid non-enemy-only classes (also excludes the DLC Pegasus Knight 
 Crash is the Adam. The Ymir. He is the first Corrin that every Corrin is made in the image of, and he will be venerated as such by us not really doing anything to venerate him it's just the Corrin that serves as a base Corrin.
 ### main.py
 Contains all of the functionality of the program. main.py actually opens and imports the data from the google sheet, turns it into a Pandas DataFrame, validates all the Corrins, discards all the invalid Corrins, outputs all the problems with the invalid corrins to an error file, creates the Corrin objects, and creates the new .fe14unit files.
-
-Requirements: 
-1. Must have at least Python version 3.12.1
-2. Must have a Python IDE to run the program
