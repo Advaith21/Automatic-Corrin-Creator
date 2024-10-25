@@ -40,8 +40,8 @@ Contains all constants that a Python-unfamiliar user should edit and their signi
 Contains several dictionaries mapping skills by name to different values. skills_dict contains the hex values for each skill, and  skill_learn_values contains the encoded hex values for each skill that are used to define what skills a Corrin has learned.
 ### modifiers.py
 Contains several arrays which carry information about how Corrin's boon/bane will affect their bases, growths, and caps and a function which calculates a Corrin's stat sheet from Chapter 7 all the way till Endgame when given their boon, bane, base class, and promoted class.
-### classes.py
-Contains all valid non-enemy-only classes (also excludes the DLC Pegasus Knight class) and their information. This information includes their name, tier, bases, growths, caps, weapon type access, promotions, and their in-game hex code ID, which allows us to edit Corrin's current class.
+### classes.xlsx and classes.py
+Contain all valid non-enemy-only classes (also excludes the DLC Pegasus Knight class) and their information. This information includes their name, tier, bases, growths, caps, weapon type access, promotions, and their in-game hex code ID, which allows us to edit Corrin's current class.
 ### Crash.fe14unit
 Crash is the Adam. The Ymir. He is the first Corrin that every Corrin is made in the image of, and he will be venerated as such by us not really doing anything to venerate him it's just the Corrin that serves as a base Corrin.
 ### main.py
