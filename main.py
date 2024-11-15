@@ -9,9 +9,6 @@ import sys
 import corrin_editing as c_e
 import Corrin
 import edit_this
-import openpyxl
-import copy
-
 error_file = open("error.txt", "w")
 
 
@@ -35,11 +32,6 @@ def create_corrin_directories(c_list):
         subfolders = [f"{u_name}_B", f"{u_name}_C", f"{u_name}_R"]
         for subfolder in subfolders:
             os.makedirs(os.path.join(u_name, subfolder), exist_ok=True)
-
-
-# def log_error(message):
-#     error_file.write(message + "\n")
-
 
 def make_valid_dir_name(s):
     s = s.replace("\\", "_")
