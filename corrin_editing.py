@@ -120,8 +120,7 @@ def edit_corrin(f_name, level, sks, internal_level, stats, new_class_hex_num, ne
             hex_data = edit_hex_in_string(hex_data, indices[i], hex(int(stat))[2:])
 
         # Class
-        addon = np.array(new_class_hex_num)[0]
-        hex_data = edit_hex_in_string(hex_data, CLASS_INDEX, addon)
+        hex_data = edit_hex_in_string(hex_data, CLASS_INDEX, new_class_hex_num)
 
         # Name
         if len(new_name) > 8:
@@ -161,7 +160,8 @@ def edit_corrin(f_name, level, sks, internal_level, stats, new_class_hex_num, ne
 
         # Skills
         skill_indices = [SKILL_1_INDEX, SKILL_2_INDEX, SKILL_3_INDEX, SKILL_4_INDEX, SKILL_5_INDEX]
-        for i, s_name in enumerate(sks):
+        for i in range(0,5):
+            s_name = sks[i]
             if s_name != "None":
                 s_hex = skills.skills_dict[s_name]  # Assuming skills_dict from skills.py is available
                 hex_data = edit_hex_in_string(hex_data, skill_indices[i], s_hex)
