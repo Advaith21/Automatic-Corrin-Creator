@@ -32,6 +32,8 @@ __What the tool is not planning to be able to do:__
 ## Files and what they do:
 ### Corrin.py
 Defines a class "Corrin." This class contains all the attributes that will be used to directly edit the hex of a .fe14unit file. This file also validates all values passed into it, for example, making sure that the name it is passed in is actually valid.
+### CorrinValidator.py
+Given a dataframe, the budget of the run, whether one is playing each route, and information about the promotion mode, this file defines a class "CorrinValidator." It validates all the Corrins and drops any Corrins that aren't according to the specifications, marking it down in error.txt
 ### corrin_editing.py
 Contains the functions actually used to edit the .fe14unit files. This file also contains a number of constant values used to keep track of where the location of different sets of data can be found. For example, the byte that contains the hex value for Corrin's current class is found at index 30.
 ### edit_this.py
@@ -45,4 +47,4 @@ Contain all valid non-enemy-only classes (also excludes the DLC Pegasus Knight c
 ### Crash.fe14unit
 Crash is the Adam. The Ymir. He is the first Corrin that every Corrin is made in the image of, and he will be venerated as such by us not really doing anything to venerate him it's just the Corrin that serves as a base Corrin.
 ### main.py
-Contains all of the functionality of the program. main.py actually opens and imports the data from the google sheet, turns it into a Pandas DataFrame, validates all the Corrins, discards all the invalid Corrins, outputs all the problems with the invalid corrins to an error file, creates the Corrin objects, and creates the new .fe14unit files.
+Contains all of the functionality of the program. main.py actually opens and imports the data from the google sheet, turns it into a Pandas DataFrame, passes it into CorrinValidator, creates the Corrin objects, and creates the new .fe14unit files.
