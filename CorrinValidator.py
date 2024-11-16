@@ -5,7 +5,8 @@ import classes as cs
 
 def skill_sum(a):
     """
-    This function just sums up the skills in a list.
+    This function just sums up the skills in a list. Returns -999 if any of the skills have a negative value (AKA
+    if any of the skills in the list are banned.)
     :param a: List. List of skills that need to be added up
     :return: Sum of skill prices.
     """
@@ -73,7 +74,6 @@ class CorrinValidator:
                     self.df.at[inn, edit_this.PROMOTED_CLASS_REV] = "Butler"
                 if r[edit_this.GENDER] == "Female":
                     self.df.at[inn, edit_this.PROMOTED_CLASS_REV] = "Maid"
-                
 
     def log_error(self, message):
         self.error_log.write(message + "\n")
@@ -91,7 +91,7 @@ class CorrinValidator:
             self.validate_hair_color(r, inn)
             self.validate_skills(r, inn)
             self.validate_promotion(r, inn)
-        
+
         self.to_be_removed = list(set(self.to_be_removed))
         self.df.drop(self.to_be_removed, inplace=True)
         self.error_log.close()
@@ -192,7 +192,7 @@ class CorrinValidator:
         #rrggbb
         rrggbb
         RRGGBB
-        RRGGBBsdfsd
+        RRGGBBxxxxx
         :param row: Row corresponding to the current Corrin.
         :param index: Index of the current row.
         :return: None.
@@ -328,7 +328,8 @@ class CorrinValidator:
             return self.check_mode_1(bc_series, pc_series, base_class, promoted_class, cor_name)
         elif self.mode == 2:
             return self.check_mode_2(bc_series, pc_series, base_class, promoted_class, cor_name)
-        elif self.mode == 3: # Note: If the Corrin passes validate_tiers, the promotion will always be valid in mode 3.
+        elif self.mode == 3:
+            # Note: If the Corrin passes validate_tiers, the promotion will always be valid in mode 3.
             return True
         else:
             self.log_error(f"ERROR IN validate_promotion: Invalid mode selection {self.mode}")
@@ -391,7 +392,8 @@ class CorrinValidator:
             return True
 
         # Step 3: If they don't share any weapon types, log the error and return false.
-        self.log_error(f"Invalid promotion from {base_class} to {promoted_class} for Corrin \"{cor_name}\". The classes do not share a weapon type.")
+        self.log_error(
+            f"Invalid promotion from {base_class} to {promoted_class} for Corrin \"{cor_name}\". The classes do not share a weapon type.")
         return False
 
     def validate_tiers(self, bc_series, pc_series, base_class, promoted_class, cor_name):

@@ -10,7 +10,7 @@ import corrin_editing as c_e
 import Corrin
 import edit_this
 error_file = open("error.txt", "w")
-
+import openpyxl
 
 def create_corrin_directories(c_list):
     n_count = {}  # Dictionary to keep track of the count for each name
