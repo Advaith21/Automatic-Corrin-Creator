@@ -20,10 +20,10 @@ This is a program that takes in data from a Google Sheets and outputs Corirns ba
 9. Skill slot editing (Including allowing Corrin's slots to contain skills that are normally personals, like Bloodthirst)
 10. Skill budgeting with modifiable values (Each submission gets X points to buy skills which cost more the more powerful they are)
 11. Level, Internal Level, and automatic stat calculation
+12. Weapon Rank auto-levelling
 
 __What the tool should be able to handle but isn't yet tested on:__
 1. Picking from 1-3 routes (The tool is optimized for 3 routes simultaneously and not for only 1 or 2 routes yet)
-2. Weapon Ranks (There are hex values corresponding to it but they aren't being touched yet)
 3. Inventory (Kind of a nebulous topic, what should a Corrin join with, but theoretically possible)
 
 __What the tool is not planning to be able to do:__
