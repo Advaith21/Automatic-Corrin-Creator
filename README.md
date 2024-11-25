@@ -20,10 +20,10 @@ This is a program that takes in data from a Google Sheets and outputs Corirns ba
 9. Skill slot editing (Including allowing Corrin's slots to contain skills that are normally personals, like Bloodthirst)
 10. Skill budgeting with modifiable values (Each submission gets X points to buy skills which cost more the more powerful they are)
 11. Level, Internal Level, and automatic stat calculation
+12. Weapon Rank auto-levelling
 
 __What the tool should be able to handle but isn't yet tested on:__
 1. Picking from 1-3 routes (The tool is optimized for 3 routes simultaneously and not for only 1 or 2 routes yet)
-2. Weapon Ranks (There are hex values corresponding to it but they aren't being touched yet)
 3. Inventory (Kind of a nebulous topic, what should a Corrin join with, but theoretically possible)
 
 __What the tool is not planning to be able to do:__
@@ -44,6 +44,8 @@ Contains several dictionaries mapping skills by name to different values. skills
 Contains several arrays which carry information about how Corrin's boon/bane will affect their bases, growths, and caps and a function which calculates a Corrin's stat sheet from Chapter 7 all the way till Endgame when given their boon, bane, base class, and promoted class.
 ### classes.xlsx and classes.py
 Contain all valid non-enemy-only classes (also excludes the DLC Pegasus Knight class) and their information. This information includes their name, tier, bases, growths, caps, weapon type access, promotions, and their in-game hex code ID, which allows us to edit Corrin's current class.
+### gain_formulas.xlsx and weapon_ranks.py
+Contains the information needed to automatically assign each Corrin their weapon ranks at their join time. gain_formulas contians a list of rates at which Corrins need to gain weapon rank to go from a specific rank to another (e.g. D rank to B rank unpromoted). weapon_ranks.py contains one member function, calculate_weapon_sheet, that uses this information and spits out a 21x8 NumPy array that can be referenced to create a set of weapon ranks for each Corrin for each chapter.
 ### Crash.fe14unit
 Crash is the Adam. The Ymir. He is the first Corrin that every Corrin is made in the image of, and he will be venerated as such by us not really doing anything to venerate him it's just the Corrin that serves as a base Corrin.
 ### main.py
