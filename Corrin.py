@@ -1,7 +1,7 @@
 import modifiers
 import numpy as np
 import edit_this
-
+from weapon_ranks import calculate_weapon_sheet
 
 # Every time you create a new Corrin, you should use this.
 # IMPORTANT NOTE: DO NOT CREATE A CORRIN BEFORE YOU VALIDATE THE DATA!!!!
@@ -90,6 +90,10 @@ class Corrin:
 
         self.stats = self.stats.astype(int).astype(str)
 
+        # Step 14: Get Corrin's weapon sheet. This sheet takes Corrin's base class and promoted class and creates a
+        # 21x8 NumPy array where the rows correspond to the chapter and the columns correspond to the weapon types
+        # (swords, lances, axes, hidden, bow, tome, staff, stone).
+        self.weapon_ranks = [calculate_weapon_sheet(self.base_class[0], self.promotion[0]), calculate_weapon_sheet(self.base_class[1], self.promotion[1]), calculate_weapon_sheet(self.base_class[2], self.promotion[2])]
     def __repr__(self):
         return (f"Corrin(name='{self.name}', boon='{self.boon}', bane='{self.bane}', gender='{self.gender}', "
                 f"base_class='{self.base_class}', body={self.body}, face={self.face}, style={self.style}, "

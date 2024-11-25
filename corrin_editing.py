@@ -121,7 +121,7 @@ def copy_file(source_file, destination_file):
         with open(destination_file, 'wb') as dst:
             dst.write(src.read())
 
-def edit_corrin(f_name, level, sks, internal_level, stats, new_class_hex_num, new_name, boon, bane, talent, gender, body, face, hairstyle, hair_color, decoration, detail, voice, learned_skills):
+def edit_corrin(f_name, level, sks, internal_level, stats, new_class_hex_num, new_name, boon, bane, talent, gender, body, face, hairstyle, hair_color, decoration, detail, voice, learned_skills, weapon_rank):
     with open(f_name, 'rb+') as f:
         byte_data = f.read()
         hex_data = byte_data.hex()
@@ -185,6 +185,13 @@ def edit_corrin(f_name, level, sks, internal_level, stats, new_class_hex_num, ne
         # Learned Skills
         r_hex = reverse_bits(learned_skills)
         hex_data = hex_data[:LEARNED_SKILLS_INDEX] + r_hex + hex_data[LEARNED_SKILLS_INDEX + len(r_hex):]
+
+        # Weapon Ranks
+        weapon_indices = [SWORD_RANK_INDEX, LANCE_RANK_INDEX, AXE_RANK_INDEX, HIDDEN_RANK_INDEX, BOW_RANK_INDEX,
+                          TOME_RANK_INDEX, STAFF_RANK_INDEX, STONE_RANK_INDEX]
+        for i, rank in enumerate(weapon_rank):
+            hex_data = edit_hex_in_string(hex_data, weapon_indices[i],hex(int(rank))[2:])
+
 
         f.seek(0)
         f.write(bytes.fromhex(hex_data))

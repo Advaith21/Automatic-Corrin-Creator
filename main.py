@@ -192,7 +192,7 @@ for corrin in corrin_list:
                             talent=corrin.base_class[i], gender=corrin.gender, boon=corrin.boon[i], bane=corrin.bane[i],
                             learned_skills=skills.calculate_skills_value(pre_autolevel_skills),
                             sks=corrin.skills[i], stats=corrin.stats[i][j], level=l_val, internal_level=il_val,
-                            new_class_hex_num=c_val)
+                            new_class_hex_num=c_val, weapon_rank=corrin.weapon_ranks[i][j])
 
     tracker = tracker + 1
     print(f"Corrin {corrin.name} has been completed. {round((tracker / tracker_max) * 100, 2)}% complete.")
